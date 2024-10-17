@@ -55,6 +55,10 @@ function formPassword() {
         document.getElementById("user-password").innerHTML = "**Must not be greater than 20 characters.";
         return false;
     }
+    if (fpassword.value !== fconfirm.value) {
+        document.getElementById("user-password").innerHTML = "**Passwords do not match";
+        return false;
+    }
     return true;
 }
 
@@ -62,7 +66,10 @@ function formPassword() {
 function confirmPassword() {
     // Clear previous error message
     document.getElementById("confirm-pass").innerHTML = "";
-
+    if (fconfirm.value === "") {
+        document.getElementById("confirm-pass").innerHTML = "**Password cannot be empty";
+        return false;
+    }
     if (fpassword.value !== fconfirm.value) {
         document.getElementById("confirm-pass").innerHTML = "**Passwords do not match";
         return false;
